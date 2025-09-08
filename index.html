@@ -10,24 +10,15 @@
 
     body {
       font-family: Arial, sans-serif;
-      color: #fff;
-      background: #262626;
+      color: #333;
+      background: #fff;
       overflow-x: hidden;
     }
 
-    /* Background Video */
-    #bg-video {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-
-    /* Logo Centering */
+    /* Logo Container */
     .logo-container {
       text-align: center;
-      padding: 10px 0;
+      padding: 15px 0;
       background-color: #262626;
     }
     .logo-container img {
@@ -35,13 +26,13 @@
       width: auto;
     }
 
-    /* Amazon-Style Navigation Bar */
+    /* Top Menu */
     .top-menu {
       background-color: #1E90FF;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      padding: 12px 0;
+      padding: 10px 0;
     }
     .top-menu a {
       color: #fff;
@@ -52,15 +43,14 @@
       transition: color 0.3s ease;
     }
     .top-menu a:hover {
-      color: #FFD700; /* gold hover */
+      color: #FFD700;
       cursor: pointer;
     }
 
-    /* Sections */
+    /* Main Sections */
     .section {
       text-align: center;
       padding: 3rem 1rem;
-      background: rgba(0, 0, 0, 0.5); /* translucent overlay */
       margin: 1rem auto;
       border-radius: 8px;
       max-width: 1000px;
@@ -74,7 +64,7 @@
       line-height: 1.6;
     }
 
-    /* Buttons */
+    /* CTA Buttons */
     .cta-buttons a {
       display: inline-block;
       margin: 0.5rem;
@@ -83,7 +73,7 @@
       text-decoration: none;
       font-weight: bold;
       color: white;
-      background: rgba(30,144,255,0.85); /* translucent blue */
+      background: rgba(30,144,255,0.85);
       transition: all 0.3s;
     }
     .cta-buttons a:hover {
@@ -96,7 +86,7 @@
     .testimonial {
       margin: 1rem auto;
       padding: 1rem;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(30,144,255,0.05);
       border-radius: 6px;
       font-style: italic;
       max-width: 700px;
@@ -111,7 +101,7 @@
       font-size: 0.9rem;
     }
 
-    /* Social icons */
+    /* Social Icons */
     .socials img {
       width: 30px;
       margin: 0 8px;
@@ -135,12 +125,8 @@
   </style>
 </head>
 <body>
-  <!-- Background video -->
-  <video autoplay muted loop id="bg-video">
-    <source src="background.mp4" type="video/mp4">
-  </video>
 
-  <!-- Header -->
+  <!-- Logo Header -->
   <header>
     <div class="logo-container">
       <img src="logo.png" alt="QuickFixers Norfolk Logo">
@@ -157,7 +143,7 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- Main Section -->
+  <!-- Hero / Main Section -->
   <section class="section" id="home" data-animate>
     <h2>Fast, Trusted Help for Small Jobs in Norfolk</h2>
     <p>Homeowners • Airbnb Hosts • Landlords — we’ve got you covered.</p>
@@ -165,6 +151,18 @@
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCwHGpseu155aukcTTPegOf9gilkdxQaiCoGLvB11RIfJ4Cg/viewform" target="_blank">📌 Post a Job</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSen9l2ulbRSxpJDkBSYVgphaGf3-e6dDstPHO2G2D-8RRU0aQ/viewform" target="_blank">🔧 Join as a Fixer</a>
     </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about" data-animate>
+    <h2>About Us</h2>
+    <p>QuickFixers Norfolk is your local platform for fast, reliable help with small jobs. We connect homeowners, landlords, and Airbnb hosts with trusted fixers in your area.</p>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="section" id="blog" data-animate>
+    <h2>Blog</h2>
+    <p>Tips, updates, and stories from the QuickFixers community. Stay informed about home repairs and small jobs in Norfolk.</p>
   </section>
 
   <!-- Testimonials -->
@@ -175,7 +173,7 @@
     <div class="testimonial">“Great experience in Cromer, the fixer was polite and fast.” — Emily, Cromer</div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section class="section" id="contact" data-animate>
     <h2>Contact Us</h2>
     <p>Email: info@quickfixers.co.uk</p>
