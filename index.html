@@ -37,18 +37,33 @@ body {
     flex-wrap: wrap;
     padding: 8px 0;
   }
-  .top-menu a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: 600;
-    font-size: 14px;
-    transition: color 0.3s;
-  }
-  .top-menu a:hover {
-    color: #FFD700;
-    cursor: pointer;
-  }
+.top-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px; /* space between boxes */
+  padding: 12px 0;
+}
+
+.top-menu a {
+  background: #ffffff;      /* white box */
+  color: #1E90FF;           /* blue text */
+  text-decoration: none;
+  padding: 8px 14px;        /* box padding */
+  border-radius: 6px;       /* rounded corners */
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* subtle shadow */
+}
+
+.top-menu a:hover {
+  background: #1E90FF;      /* blue on hover */
+  color: #ffffff;           /* white text on hover */
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
 
   /* Sections */
   .section {
