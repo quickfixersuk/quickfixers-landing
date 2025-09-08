@@ -144,14 +144,22 @@ body {
   }
 
   /* Social Icons */
-  .socials img {
-    width: 30px;
-    margin: 0 8px;
-    transition: transform 0.2s;
-  }
-  .socials img:hover {
-    transform: scale(1.2);
-    cursor: pointer;
+  .socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.socials img {
+  width: 32px;      /* icon size */
+  height: 32px;
+  transition: transform 0.2s;
+}
+
+.socials img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
   }
 
   /* Animations */
