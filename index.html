@@ -1,4 +1,4 @@
-<header class="header"><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,8 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Inter', sans-serif; background:#f5f5f5; color:#333; }
-  
+
+  body {
+    font-family:'Inter', sans-serif;
+    background:#f5f5f5;
+    color:#333;
+  }
+
   /* Header / Hero */
   .header {
     background:#262626;
@@ -16,28 +21,48 @@
     text-align:center;
     padding:40px 20px;
   }
-  .header img { max-height:100px; margin-bottom:20px; }
-  .header h1 { font-size:2.5rem; margin-bottom:10px; }
-  .header p { font-size:1.2rem; margin-bottom:20px; }
+  .header img { max-height:120px; margin-bottom:20px; }
+  .header h1 { font-size:2.5rem; margin-bottom:10px; animation: fadeUp 1s ease forwards; }
+  .header p { font-size:1.2rem; margin-bottom:20px; animation: fadeUp 1s ease 0.3s forwards; opacity:0; }
+  
+  /* CTA Buttons */
   .cta-buttons { margin-top:20px; }
- .cta-buttons a {
-  display:inline-block;
-  margin:0 10px;
-  padding:12px 24px;
-  background:#1E90FF;
-  color:#fff;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:600;
-  transition:all 0.3s;
-  box-shadow:0 4px 8px rgba(0,0,0,0.2); /* new */
-}
-
+  .cta-buttons a {
+    display:inline-block;
+    margin:0 10px;
+    padding:12px 24px;
+    background:#1E90FF;
+    color:#fff;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+    transition: all 0.3s;
+    opacity:0;
+    animation: fadeUp 1s ease forwards;
+  }
+  .cta-buttons a:nth-child(1) { animation-delay:0.6s; }
+  .cta-buttons a:nth-child(2) { animation-delay:0.8s; }
   .cta-buttons a:hover { background:#0d6fd1; transform:scale(1.05); cursor:pointer; }
 
+  @keyframes fadeUp {
+    0% { opacity:0; transform: translateY(20px); }
+    100% { opacity:1; transform: translateY(0); }
+  }
+
   /* Sections */
-  .section { max-width:1000px; margin:40px auto; background:#fff; border-radius:8px; padding:30px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
-  .section h2 { text-align:center; margin-bottom:20px; color:#1E90FF; }
+  .section {
+    max-width:1000px;
+    margin:40px auto;
+    background:#fff;
+    border-radius:8px;
+    padding:30px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+  }
+  .section h2 {
+    text-align:center;
+    margin-bottom:20px;
+    color:#1E90FF;
+  }
   .section p { text-align:center; line-height:1.6; }
 
   /* How It Works */
@@ -49,11 +74,18 @@
     border-radius:8px;
     box-shadow:0 2px 6px rgba(0,0,0,0.1);
     text-align:center;
-    transition:transform 0.3s;
+    transition:transform 0.3s, box-shadow 0.3s;
+    position:relative;
   }
-  .step:hover { transform:translateY(-4px); }
+  .step:hover { transform:translateY(-4px); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
   .step h3 { color:#1E90FF; margin-bottom:10px; }
   .step p { font-size:0.95rem; }
+  .step-icon {
+    font-size:2rem;
+    color:#1E90FF;
+    margin-bottom:10px;
+    display:block;
+  }
 
   /* Testimonials */
   .testimonials { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
@@ -64,7 +96,9 @@
     border-radius:8px;
     box-shadow:0 2px 6px rgba(0,0,0,0.1);
     text-align:center;
+    transition:transform 0.3s;
   }
+  .testimonial:hover { transform:translateY(-2px); }
   .testimonial p { font-style:italic; margin-bottom:10px; }
   .testimonial h4 { font-weight:600; }
 
@@ -73,10 +107,27 @@
   .socials img { width:30px; margin:0 8px; transition:transform 0.2s; }
   .socials img:hover { transform:scale(1.2); cursor:pointer; }
 
+  /* Hero Form */
+  #hero-form { margin-top:30px; max-width:600px; margin-left:auto; margin-right:auto; display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  #hero-form input { flex:1 1 45%; padding:10px; border-radius:6px; border:1px solid #ccc; }
+  #hero-form input[type="text"]:nth-child(3) { flex:1 1 100%; }
+  #hero-form button {
+    flex:1 1 100%;
+    padding:12px;
+    background:#1E90FF;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    transition:all 0.3s;
+  }
+  #hero-form button:hover { background:#0d6fd1; cursor:pointer; transform:scale(1.03); }
+
   /* Responsive */
   @media(max-width:600px){
     .steps, .testimonials { flex-direction:column; }
     .cta-buttons a { margin:10px 0; display:block; }
+    #hero-form input { flex:1 1 100%; }
   }
 </style>
 </head>
@@ -87,69 +138,66 @@
   <h1>Fast, Trusted Help for Small Jobs in Norfolk</h1>
   <p>Homeowners • Airbnb Hosts • Landlords — we’ve got you covered.</p>
 
-  <!-- CTA Buttons -->
   <div class="cta-buttons">
     <a href="#post-job">📌 Post a Job</a>
     <a href="#join-fixer">🔧 Join as a Fixer</a>
   </div>
 
-  <!-- Hero Job Form -->
-  <form id="hero-form" style="margin-top:30px; max-width:600px; margin-left:auto; margin-right:auto; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
-    <input type="text" name="name" placeholder="Your Name" required style="flex:1 1 45%; padding:10px; border-radius:6px; border:1px solid #ccc;">
-    <input type="email" name="email" placeholder="Email Address" required style="flex:1 1 45%; padding:10px; border-radius:6px; border:1px solid #ccc;">
-    <input type="text" name="job" placeholder="Job Description" required style="flex:1 1 100%; padding:10px; border-radius:6px; border:1px solid #ccc;">
-    <button type="submit" style="flex:1 1 100%; padding:12px; background:#1E90FF; color:#fff; border:none; border-radius:6px; font-weight:600; transition:all 0.3s;">Submit Job</button>
+  <form id="hero-form">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="text" name="job" placeholder="Job Description" required>
+    <button type="submit">Submit Job</button>
   </form>
 </header>
 
-<!-- How It Works Section -->
 <section class="section" id="how-it-works">
   <h2>How It Works</h2>
   <div class="steps">
     <div class="step">
+      <span class="step-icon">📌</span>
       <h3>1. Post a Job</h3>
       <p>Tell us what you need fixed, assembled, or decorated.</p>
     </div>
     <div class="step">
+      <span class="step-icon">🔧</span>
       <h3>2. Get Matched</h3>
       <p>We connect you with a trusted local fixer.</p>
     </div>
     <div class="step">
+      <span class="step-icon">✅</span>
       <h3>3. Job Done</h3>
       <p>Fast, reliable service — no stress, no hassle.</p>
     </div>
   </div>
 </section>
 
-  <!-- Testimonials -->
-  <section class="section" id="testimonials">
-    <h2>Testimonials</h2>
-    <div class="testimonials">
-      <div class="testimonial">
-        <p>"Excellent service, quick and professional!"</p>
-        <h4>Jane, Cromer</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Saved me hours of work, highly recommend."</p>
-        <h4>Mark, Norwich</h4>
-      </div>
+<section class="section" id="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <p>"Excellent service, quick and professional!"</p>
+      <h4>Jane, Cromer</h4>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="section" id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: info@quickfixers.co.uk</p>
-    <div class="socials">
-      <a href="#"><img src="facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="instagram.png" alt="Instagram"></a>
+    <div class="testimonial">
+      <p>"Saved me hours of work, highly recommend."</p>
+      <h4>Mark, Norwich</h4>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 QuickFixers Norfolk | Contact: info@quickfixers.co.uk</p>
-  </footer>
+<section class="section" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:info@quickfixers.co.uk">info@quickfixers.co.uk</a></p>
+  <div class="socials">
+    <a href="#"><img src="facebook.png" alt="Facebook"></a>
+    <a href="#"><img src="instagram.png" alt="Instagram"></a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 QuickFixers Norfolk | Contact: info@quickfixers.co.uk</p>
+</footer>
 
 </body>
 </html>
