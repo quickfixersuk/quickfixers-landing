@@ -10,13 +10,12 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #262626;
       color: #fff;
-      line-height: 1.6;
+      background: #262626;
       overflow-x: hidden;
     }
 
-    /* Background video */
+    /* Background Video */
     #bg-video {
       position: fixed;
       top: 0; left: 0;
@@ -25,63 +24,67 @@
       z-index: -1;
     }
 
-    /* Header */
-    header {
-      background: #262626;
-      padding: 1rem 0 0.5rem;
+    /* Logo Centering */
+    .logo-container {
       text-align: center;
+      padding: 10px 0;
+      background-color: #262626;
     }
-    .top-logo {
-      height: 90px;
+    .logo-container img {
+      max-height: 60px;
       width: auto;
-      margin-bottom: 0.5rem;
     }
 
-    /* Menu under logo */
-    .under-logo-menu {
+    /* Amazon-Style Navigation Bar */
+    .top-menu {
+      background-color: #1E90FF;
       display: flex;
       justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      padding: 12px 0;
     }
-    .menu-link {
-      padding: 0.6rem 1.2rem;
-      background: rgba(30,144,255,0.85); /* semi-transparent blue */
-      border-radius: 6px;
+    .top-menu a {
       color: #fff;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
+      margin: 0 14px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color 0.3s ease;
     }
-    .menu-link:hover {
-      background: rgba(30,144,255,1);
-      transform: scale(1.05);
+    .top-menu a:hover {
+      color: #FFD700; /* gold hover */
       cursor: pointer;
     }
 
-    /* Hero section */
-    .hero {
+    /* Sections */
+    .section {
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 3rem 1rem;
+      background: rgba(0, 0, 0, 0.5); /* translucent overlay */
+      margin: 1rem auto;
+      border-radius: 8px;
+      max-width: 1000px;
     }
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
+    .section h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
     }
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
+
+    /* Buttons */
     .cta-buttons a {
       display: inline-block;
       margin: 0.5rem;
       padding: 0.8rem 1.5rem;
-      border-radius: 8px;
+      border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
       color: white;
-      background: rgba(30,144,255,0.9);
-      transition: background 0.3s, transform 0.2s;
+      background: rgba(30,144,255,0.85); /* translucent blue */
+      transition: all 0.3s;
     }
     .cta-buttons a:hover {
       background: rgba(30,144,255,1);
@@ -89,64 +92,15 @@
       cursor: pointer;
     }
 
-    /* Section styling */
-    section {
-      padding: 3rem 1rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    section h2 {
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      border-bottom: 2px solid #1E90FF;
-      display: inline-block;
-      padding-bottom: 0.3rem;
-    }
-
-    /* Steps */
-    .steps {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .step {
-      flex: 1 1 250px;
-      background: rgba(255,255,255,0.08);
-      padding: 1.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
-    .step:hover { transform: translateY(-5px); }
-
     /* Testimonials */
-    .testimonials {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
     .testimonial {
-      flex: 1 1 280px;
-      background: rgba(255,255,255,0.08);
-      padding: 1.5rem;
-      border-radius: 10px;
+      margin: 1rem auto;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
       font-style: italic;
+      max-width: 700px;
     }
-
-    /* Socials */
-    .socials {
-      margin-top: 1rem;
-    }
-    .socials img {
-      height: 30px;
-      width: auto;
-      margin: 0 0.5rem;
-      filter: brightness(0) invert(1);
-      transition: transform 0.2s;
-    }
-    .socials img:hover { transform: scale(1.2); cursor: pointer; }
 
     /* Footer */
     footer {
@@ -155,6 +109,17 @@
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
+    }
+
+    /* Social icons */
+    .socials img {
+      width: 30px;
+      margin: 0 8px;
+      transition: transform 0.2s;
+    }
+    .socials img:hover {
+      transform: scale(1.2);
+      cursor: pointer;
     }
 
     /* Animations */
@@ -177,61 +142,42 @@
 
   <!-- Header -->
   <header>
-    <img src="logo.png" alt="QuickFixers Norfolk" class="top-logo">
-    <nav class="under-logo-menu">
-      <a href="#about" class="menu-link">About</a>
-      <a href="#blog" class="menu-link">Blog</a>
-      <a href="#post-job" class="menu-link">Post a Job</a>
-      <a href="#join-fixer" class="menu-link">Join as a Fixer</a>
-      <a href="#contact" class="menu-link">Contact</a>
-    </nav>
+    <div class="logo-container">
+      <img src="logo.png" alt="QuickFixers Norfolk Logo">
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero" id="home" data-animate>
-    <h1>Fast, Trusted Help for Small Jobs</h1>
-    <p>QuickFixers connects you with reliable local fixers across Norfolk.</p>
+  <!-- Top Navigation Bar -->
+  <nav class="top-menu">
+    <a href="#about">About Us</a>
+    <a href="#blog">Blog</a>
+    <a href="#post-job">Post a Job</a>
+    <a href="#join-fixer">Join as a Fixer</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main Section -->
+  <section class="section" id="home" data-animate>
+    <h2>Fast, Trusted Help for Small Jobs in Norfolk</h2>
+    <p>Homeowners • Airbnb Hosts • Landlords — we’ve got you covered.</p>
     <div class="cta-buttons">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCwHGpseu155aukcTTPegOf9gilkdxQaiCoGLvB11RIfJ4Cg/viewform" target="_blank">📌 Post a Job</a>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSen9l2ulbRSxpJDkBSYVgphaGf3-e6dDstPHO2G2D-8RRU0aQ/viewform" target="_blank">🔧 Join as a Fixer</a>
     </div>
   </section>
 
-  <!-- How it Works -->
-  <section id="how" data-animate>
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step"><h3>1. Post a Job</h3><p>Tell us what you need fixed or assembled.</p></div>
-      <div class="step"><h3>2. Get Matched</h3><p>We connect you with a trusted local fixer.</p></div>
-      <div class="step"><h3>3. Job Done</h3><p>Fast, reliable service — no stress, no hassle.</p></div>
-    </div>
-  </section>
-
   <!-- Testimonials -->
-  <section id="testimonials" data-animate>
+  <section class="section" id="testimonials" data-animate>
     <h2>What People Say</h2>
-    <div class="testimonials">
-      <div class="testimonial">“QuickFixers sorted out my flat-pack furniture in no time — lifesaver!” — Sarah, Norwich</div>
-      <div class="testimonial">“Reliable and fast, perfect for my Airbnb turnovers.” — James, Great Yarmouth</div>
-      <div class="testimonial">“Excellent help with decorating my holiday cottage.” — Claire, Cromer</div>
-    </div>
-  </section>
-
-  <!-- About Us -->
-  <section id="about" data-animate>
-    <h2>About Us</h2>
-    <p>QuickFixers Norfolk was created to make small jobs simple. We help homeowners, landlords, and Airbnb hosts find trusted local fixers for the little things that make a big difference.</p>
-  </section>
-
-  <!-- Blog -->
-  <section id="blog" data-animate>
-    <h2>Blog</h2>
-    <p>Coming soon: tips, guides, and stories from the QuickFixers community.</p>
+    <div class="testimonial">“QuickFixers sorted my leaky tap the same day — amazing service!” — John, Norwich</div>
+    <div class="testimonial">“Perfect for our Airbnb changeovers, always reliable.” — Sarah, Great Yarmouth</div>
+    <div class="testimonial">“Great experience in Cromer, the fixer was polite and fast.” — Emily, Cromer</div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" data-animate>
-    <h2>Contact</h2>
+  <section class="section" id="contact" data-animate>
+    <h2>Contact Us</h2>
     <p>Email: info@quickfixers.co.uk</p>
     <div class="socials">
       <a href="#"><img src="facebook.png" alt="Facebook"></a>
@@ -244,17 +190,19 @@
     <p>© 2025 QuickFixers Norfolk | All rights reserved.</p>
   </footer>
 
+  <!-- Animation Script -->
   <script>
-    // Simple fade-in animation on scroll
     const elements = document.querySelectorAll("[data-animate]");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
+    const onScroll = () => {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add("visible");
         }
       });
-    }, { threshold: 0.2 });
-    elements.forEach(el => observer.observe(el));
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
   </script>
 </body>
 </html>
