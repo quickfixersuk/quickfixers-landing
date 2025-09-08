@@ -39,31 +39,24 @@ body {
   }
 .top-menu {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px; /* space between boxes */
-  padding: 12px 0;
+  justify-content: center;  /* center links */
+  flex-wrap: wrap;          /* wrap on smaller screens */
+  gap: 12px;                /* spacing between links */
+  padding: 6px 0;           /* small padding under logo */
 }
 
 .top-menu a {
-  background: #ffffff;      /* white box */
   color: #1E90FF;           /* blue text */
-  text-decoration: none;
-  padding: 8px 14px;        /* box padding */
-  border-radius: 6px;       /* rounded corners */
+  text-decoration: none;    
   font-weight: 600;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* subtle shadow */
+  font-size: 14px;          /* small and compact */
+  transition: color 0.3s;
 }
 
 .top-menu a:hover {
-  background: #1E90FF;      /* blue on hover */
-  color: #ffffff;           /* white text on hover */
-  transform: translateY(-2px);
+  color: #FFD700;           /* gold on hover */
   cursor: pointer;
 }
-
 
   /* Sections */
   .section {
