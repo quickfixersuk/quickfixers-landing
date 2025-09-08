@@ -7,27 +7,76 @@
   <style>
     /* Reset & base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #121212; color: #e0e0e0; line-height: 1.6; }
 
-    /* Header */
-    header {
-      background: linear-gradient(135deg, #0077cc, #00aaff);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 2rem 3rem;
+    /* Navbar */
+    nav.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #1a1a1a;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #00ffff20;
     }
-    header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
-    header p { font-size: 1.25rem; opacity: 0.9; }
+    nav .logo { font-size: 1.5rem; font-weight: 700; color: #00ffff; }
+    nav ul { list-style: none; display: flex; align-items: center; }
+    nav ul li { position: relative; margin-left: 1.5rem; }
+    nav ul li a { text-decoration: none; color: #e0e0e0; font-weight: 600; transition: color 0.3s; }
+    nav ul li a:hover { color: #00ffff; }
+    nav ul li.dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      background: #1e1e1e;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0,255,255,0.2);
+    }
+    .dropdown-menu li { margin: 0; }
+    .dropdown-menu li a { display: block; padding: 0.75rem 1.5rem; color: #e0e0e0; }
+    .dropdown-menu li a:hover { background: #00cccc; color: #121212; }
 
-    /* Container */
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    }
+    .hero h1 { font-size: 3rem; color: #00ffff; margin-bottom: 1rem; }
+    .hero p { font-size: 1.25rem; opacity: 0.85; margin-bottom: 2rem; }
+    .hero .hero-buttons a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #121212;
+      background: #00ffff;
+      transition: all 0.3s;
+    }
+    .hero .hero-buttons a:hover {
+      background: #00cccc;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,255,255,0.3);
+    }
+
+    /* Container sections */
     .container { width: 90%; max-width: 1000px; margin: 2rem auto; }
 
     /* Section headings */
     .section { margin-bottom: 3rem; text-align: center; }
-    .section h2 { font-size: 2rem; margin-bottom: 1rem; color: #0077cc; position: relative; display: inline-block; }
-    .section h2::after { content: ''; display: block; width: 50px; height: 3px; background: #00aaff; margin: 8px auto 0; border-radius: 2px; }
+    .section h2 { font-size: 2rem; margin-bottom: 1rem; color: #00ffff; position: relative; display: inline-block; }
+    .section h2::after { content: ''; display: block; width: 50px; height: 3px; background: #00ffff; margin: 8px auto 0; border-radius: 2px; }
 
-    /* Step cards */
+    /* Steps */
     .steps {
       display: flex;
       flex-wrap: wrap;
@@ -36,17 +85,36 @@
     }
     .step {
       flex: 1 1 250px;
-      background: #fff;
+      background: #1e1e1e;
       padding: 2rem 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 18px rgba(0,255,255,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #00ffff20;
     }
-    .step:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-    .step h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #0077cc; }
-    .step p { font-size: 1rem; opacity: 0.85; }
+    .step:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,255,255,0.25); }
+    .step h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #00ffff; }
+    .step p { font-size: 1rem; opacity: 0.85; color: #ccc; }
 
-    /* Call-to-action buttons */
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .testimonial {
+      flex: 1 1 250px;
+      background: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #00ffff20;
+      box-shadow: 0 4px 12px rgba(0,255,255,0.1);
+    }
+    .testimonial p { font-style: italic; opacity: 0.9; }
+    .testimonial h4 { margin-top: 1rem; color: #00ffff; font-weight: 600; }
+
+    /* CTA Section */
     .cta-buttons { text-align: center; margin-top: 2rem; }
     .cta-buttons a {
       display: inline-block;
@@ -56,46 +124,73 @@
       text-decoration: none;
       font-weight: 600;
       font-size: 1.1rem;
-      color: #fff;
-      background: #0077cc;
+      color: #121212;
+      background: #00ffff;
       transition: all 0.3s;
     }
     .cta-buttons a:hover {
-      background: #00aaff;
+      background: #00cccc;
+      color: #fff;
       transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 12px rgba(0,255,255,0.3);
     }
 
     /* Footer */
     footer {
-      background: #222;
-      color: #fff;
+      background: #0f0f0f;
+      color: #aaa;
       text-align: center;
       padding: 1.5rem 1rem;
       font-size: 0.95rem;
+      border-top: 1px solid #00ffff20;
     }
 
     /* Responsive */
+    @media (max-width: 768px) {
+      nav ul { flex-direction: column; background: #1a1a1a; position: absolute; top: 60px; right: -9999px; width: 200px; transition: right 0.3s; border-radius: 6px; }
+      nav ul li { margin: 0; }
+      nav ul li a { padding: 0.75rem 1rem; display: block; }
+      nav ul.active { right: 0; }
+    }
     @media (max-width: 600px) {
-      header h1 { font-size: 2.2rem; }
-      .step { padding: 1.5rem 1rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .step, .testimonial { padding: 1.5rem 1rem; }
       .cta-buttons a { padding: 0.8rem 1.5rem; font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>QuickFixers Norfolk</h1>
-    <p>Fast, trusted help for small jobs in Norfolk</p>
-  </header>
 
-  <div class="container">
-    <div class="section">
-      <h2>Who We Help</h2>
-      <p>Homeowners • Airbnb Hosts • Landlords</p>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">QuickFixers Norfolk</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Pages ▼</a>
+        <ul class="dropdown-menu">
+          <li><a href="#post-job">Post a Job</a></li>
+          <li><a href="#join-fixer">Join as a Fixer</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Get Small Jobs Done Fast in Norfolk</h1>
+    <p>Trusted local tradesmen, hassle-free service.</p>
+    <div class="hero-buttons">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCwHGpseu155aukcTTPegOf9gilkdxQaiCoGLvB11RIfJ4Cg/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">📌 Post a Job</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSen9l2ulbRSxpJDkBSYVgphaGf3-e6dDstPHO2G2D-8RRU0aQ/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">🔧 Join as a Fixer</a>
     </div>
+  </section>
 
-    <div class="section">
+  <!-- Steps Section -->
+  <div class="container">
+    <section class="section">
       <h2>How It Works</h2>
       <div class="steps">
         <div class="step">
@@ -111,17 +206,41 @@
           <p>Fast, reliable service — hassle-free and with satisfaction guaranteed.</p>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="section cta-buttons">
-      <h2>Get Started</h2>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCwHGpseu155aukcTTPegOf9gilkdxQaiCoGLvB11RIfJ4Cg/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">📌 Post a Job</a>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSen9l2ulbRSxpJDkBSYVgphaGf3-e6dDstPHO2G2D-8RRU0aQ/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">🔧 Join as a Fixer</a>
-    </div>
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>"QuickFixers saved me hours of stress. The handyman arrived on time and did a perfect job!"</p>
+          <h4>– Sarah, Norwich</h4>
+        </div>
+        <div class="testimonial">
+          <p>"I love how simple it is to post a job and get matched. Highly recommend!"</p>
+          <h4>– Mark, Great Yarmouth</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Professional, fast, and reliable. Perfect for short-term rental turnover jobs."</p>
+          <h4>– Emma, Cromer</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" id="post-job">
+      <h2>Ready to Get Started?</h2>
+      <div class="cta-buttons">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCwHGpseu155aukcTTPegOf9gilkdxQaiCoGLvB11RIfJ4Cg/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">📌 Post a Job</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSen9l2ulbRSxpJDkBSYVgphaGf3-e6dDstPHO2G2D-8RRU0aQ/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">🔧 Join as a Fixer</a>
+      </div>
+    </section>
   </div>
 
-  <footer>
+  <!-- Footer -->
+  <footer id="contact">
     <p>© 2025 QuickFixers Norfolk | Contact: info@quickfixers.co.uk</p>
   </footer>
+
 </body>
 </html>
