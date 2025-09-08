@@ -9,25 +9,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #1c1c1c; color: #ffffff; line-height: 1.6; }
 
-    /* Navbar */
-    nav.navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background: #2a2a2a;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid #ff8800;
-    }
-    .logo img { height: 50px; width: auto; }
-    ul.nav-links { list-style: none; display: flex; align-items: center; }
-    ul.nav-links li { margin-left: 1.5rem; position: relative; }
-    ul.nav-links li a { color: #ffffff; text-decoration: none; font-weight: 600; transition: color 0.3s; }
-    ul.nav-links li a:hover { color: #ff8800; }
-    .trade-btn { padding: 0.5rem 1rem; background: #ff8800; color: #1c1c1c; border-radius: 6px; font-weight: 700; }
-    .trade-btn:hover { background: #ffa744; }
 
     <li><a href="#post-job">Post a Job</a></li>
 <li><a href="#join-fixer">Join as a Fixer</a></li>
@@ -139,24 +120,16 @@ a, .cta-buttons a, .trade-btn {
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="#home" class="logo"><img src="logo.png" alt="QuickFixers Norfolk"></a>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li class="dropdown">
-        <a href="#">Pages ▼</a>
-        <ul class="dropdown-menu">
-          <li><a href="#post-job">Post a Job</a></li>
-          <li><a href="#join-fixer">Join as a Fixer</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </li>
-      <li><a href="#trade-signup" class="trade-btn">Trade Sign-Up</a></li>
-    </ul>
-  </nav>
-
+  <div class="logo-section" style="text-align:center; margin-top:2rem;">
+  <img src="logo.png" alt="QuickFixers Norfolk" height="80">
+  <div class="under-logo-menu" style="margin-top:1rem;">
+    <a href="#post-job" class="menu-link">Post a Job</a>
+    <a href="#join-fixer" class="menu-link">Join as a Fixer</a>
+    <a href="#testimonials" class="menu-link">Testimonials</a>
+    <a href="#contact" class="menu-link">Contact</a>
+  </div>
+</div>
+  
   <!-- Hero Section -->
   <section class="hero" id="home">
     <h1>Get Small Jobs Done Fast in Norfolk</h1>
