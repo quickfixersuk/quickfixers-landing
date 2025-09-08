@@ -5,72 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QuickFixers Norfolk</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
-    }
+    /* Reset & base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background: #f5f7fa; color: #333; line-height: 1.6; }
+
+    /* Header */
     header {
-      background: #0077cc;
-      color: white;
+      background: linear-gradient(135deg, #0077cc, #00aaff);
+      color: #fff;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 4rem 2rem 3rem;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
-    }
-    .container {
-      width: 90%;
-      max-width: 900px;
-      margin: 2rem auto;
-    }
-    .section {
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
-    .section h2 {
-      color: #0077cc;
-    }
+    header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; }
+    header p { font-size: 1.25rem; opacity: 0.9; }
+
+    /* Container */
+    .container { width: 90%; max-width: 1000px; margin: 2rem auto; }
+
+    /* Section headings */
+    .section { margin-bottom: 3rem; text-align: center; }
+    .section h2 { font-size: 2rem; margin-bottom: 1rem; color: #0077cc; position: relative; display: inline-block; }
+    .section h2::after { content: ''; display: block; width: 50px; height: 3px; background: #00aaff; margin: 8px auto 0; border-radius: 2px; }
+
+    /* Step cards */
     .steps {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
       justify-content: center;
     }
     .step {
       flex: 1 1 250px;
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
+    .step:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+    .step h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #0077cc; }
+    .step p { font-size: 1rem; opacity: 0.85; }
+
+    /* Call-to-action buttons */
+    .cta-buttons { text-align: center; margin-top: 2rem; }
     .cta-buttons a {
       display: inline-block;
       margin: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
+      padding: 1rem 2rem;
+      border-radius: 50px;
       text-decoration: none;
-      font-weight: bold;
-      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #fff;
       background: #0077cc;
-      transition: background 0.3s;
+      transition: all 0.3s;
     }
     .cta-buttons a:hover {
-      background: #005fa3;
+      background: #00aaff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
+
+    /* Footer */
     footer {
-      background: #333;
-      color: white;
+      background: #222;
+      color: #fff;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+      padding: 1.5rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.2rem; }
+      .step { padding: 1.5rem 1rem; }
+      .cta-buttons a { padding: 0.8rem 1.5rem; font-size: 1rem; }
     }
   </style>
 </head>
@@ -91,24 +100,25 @@
       <div class="steps">
         <div class="step">
           <h3>1. Post a Job</h3>
-          <p>Tell us what you need fixed, assembled, or decorated.</p>
+          <p>Tell us what you need fixed, assembled, or decorated — quickly and easily.</p>
         </div>
         <div class="step">
           <h3>2. Get Matched</h3>
-          <p>We connect you with a trusted local fixer.</p>
+          <p>We connect you with a trusted local tradesman ready to handle your job.</p>
         </div>
         <div class="step">
           <h3>3. Job Done</h3>
-          <p>Fast, reliable service — no stress, no hassle.</p>
+          <p>Fast, reliable service — hassle-free and with satisfaction guaranteed.</p>
         </div>
       </div>
     </div>
 
     <div class="section cta-buttons">
-  <h2>Get Started</h2>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCwHGpseu155aukcTTPegOf9gilkdxQaiCoGLvB11RIfJ4Cg/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">📌 Post a Job</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSen9l2ulbRSxpJDkBSYVgphaGf3-e6dDstPHO2G2D-8RRU0aQ/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">🔧 Join as a Fixer</a>
-</div>
+      <h2>Get Started</h2>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdCwHGpseu155aukcTTPegOf9gilkdxQaiCoGLvB11RIfJ4Cg/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">📌 Post a Job</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSen9l2ulbRSxpJDkBSYVgphaGf3-e6dDstPHO2G2D-8RRU0aQ/viewform?usp=sharing&ouid=108111706710792971913" target="_blank">🔧 Join as a Fixer</a>
+    </div>
+  </div>
 
   <footer>
     <p>© 2025 QuickFixers Norfolk | Contact: info@quickfixers.co.uk</p>
