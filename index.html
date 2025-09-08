@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<header class="header"><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -80,16 +80,25 @@
 </head>
 <body>
 
-  <!-- Header / Hero -->
-  <header class="header">
-    <img src="logo.png" alt="QuickFixers Norfolk Logo">
-    <h1>Fast, Trusted Help for Small Jobs in Norfolk</h1>
-    <p>Homeowners • Airbnb Hosts • Landlords — we’ve got you covered.</p>
-    <div class="cta-buttons">
-      <a href="#post-job">📌 Post a Job</a>
-      <a href="#join-fixer">🔧 Join as a Fixer</a>
-    </div>
-  </header>
+<header class="header">
+  <img src="logo.png" alt="QuickFixers Norfolk Logo">
+  <h1>Fast, Trusted Help for Small Jobs in Norfolk</h1>
+  <p>Homeowners • Airbnb Hosts • Landlords — we’ve got you covered.</p>
+
+  <!-- CTA Buttons -->
+  <div class="cta-buttons">
+    <a href="#post-job">📌 Post a Job</a>
+    <a href="#join-fixer">🔧 Join as a Fixer</a>
+  </div>
+
+  <!-- Hero Job Form -->
+  <form id="hero-form" style="margin-top:30px; max-width:600px; margin-left:auto; margin-right:auto; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+    <input type="text" name="name" placeholder="Your Name" required style="flex:1 1 45%; padding:10px; border-radius:6px; border:1px solid #ccc;">
+    <input type="email" name="email" placeholder="Email Address" required style="flex:1 1 45%; padding:10px; border-radius:6px; border:1px solid #ccc;">
+    <input type="text" name="job" placeholder="Job Description" required style="flex:1 1 100%; padding:10px; border-radius:6px; border:1px solid #ccc;">
+    <button type="submit" style="flex:1 1 100%; padding:12px; background:#1E90FF; color:#fff; border:none; border-radius:6px; font-weight:600; transition:all 0.3s;">Submit Job</button>
+  </form>
+</header>
 
   <!-- How It Works Section -->
   <section class="section" id="how-it-works">
